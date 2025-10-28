@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --bg-dark: #0E0E11;
+  --panel-gray: #1F1F26;
+  --accent-red: #8A2D38;
+  --accent-teal: #00A8A8;
+  --text-white: #EAEAEA;
+  --grid-gray: #2C2C35;
 }
 
 @theme inline {
@@ -19,8 +25,64 @@
   }
 }
 
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(138, 45, 56, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(138, 45, 56, 0.8); }
+}
+
+.kulfi-pulse {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.kulfi-glow {
+  animation: glow 2s infinite ease-in-out;
+}
+
+/* React Flow custom styles */
+.react-flow__node {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+
+.react-flow__background {
+  background-color: var(--panel-gray);
+}
+
+/* Plotly custom styles */
+.plotly .modebar {
+  display: none !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--panel-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-red);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-teal);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
