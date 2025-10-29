@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* Kulfi Brand Colors and Design System */
+:root {
+  /* Primary Kulfi Colors */
+  --kulfi-orange: #ff6b35;
+  --kulfi-cream: #fff5e6;
+  --kulfi-brown: #8b4513;
+  --kulfi-gold: #ffd700;
+  
+  /* Background and Foreground */
+  --background: #f9fafb;
+  --foreground: #111827;
+  
+  /* Semantic Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111827;
+    --foreground: #f9fafb;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Kulfi Design System Classes */
+.kulfi-gradient {
+  background: linear-gradient(to right, #f97316, #f59e0b);
+}
+
+.kulfi-card {
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.kulfi-button-primary {
+  background: #f97316;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.kulfi-button-primary:hover {
+  background: #ea580c;
+}
+
+.kulfi-button-secondary {
+  background: white;
+  color: #374151;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  transition: background-color 0.2s;
+}
+
+.kulfi-button-secondary:hover {
+  background: #f9fafb;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
