@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
+import { useAppStore } from '../store/useAppStore'
 
 export default function SplashScreen() {
+  const { darkMode } = useAppStore()
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -15,9 +17,9 @@ export default function SplashScreen() {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <div className="w-48 h-48 mx-auto mb-8 rounded-2xl bg-white flex items-center justify-center p-8">
-            <img 
-              src="/media/Logo_black.png" 
-              alt="Company Logo" 
+            <img
+              src={darkMode ? '/Logo_white.png' : '/Logo_black.png'}
+              alt="Company Logo"
               className="w-full h-full object-contain"
             />
           </div>
