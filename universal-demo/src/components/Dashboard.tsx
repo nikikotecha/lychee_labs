@@ -6,60 +6,35 @@ import { TopBar } from '@/components/layout/TopBar';
 import { MainContent } from '@/components/layout/MainContent';
 import { DashboardOverview } from '@/components/dashboard/DashboardOverview';
 import { SupplierTracker } from '@/components/dashboard/SupplierTracker';
+import { ProductTracker } from '@/components/dashboard/ProductTracker';
+import { ProductionTimeline } from '@/components/dashboard/ProductionTimeline';
+import { AlertsPanel } from '@/components/dashboard/AlertsPanel';
 import { AIChat } from '@/components/dashboard/AIChat';
 
 // Placeholder components for other views
-function ProductTracker() {
-  return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">Product Tracker</h1>
-        <p className="text-gray-600">Monitor product lifecycle and quality metrics</p>
-      </div>
-      <div className="kulfi-card p-8 text-center">
-        <p className="text-gray-500">Product tracking interface coming soon...</p>
-      </div>
-    </div>
-  );
-}
-
-function ProductionTimeline() {
-  return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">Production Timeline</h1>
-        <p className="text-gray-600">Gantt chart view of production schedules</p>
-      </div>
-      <div className="kulfi-card p-8 text-center">
-        <p className="text-gray-500">Production timeline with Gantt charts coming soon...</p>
-      </div>
-    </div>
-  );
-}
-
-function AlertsPanel() {
-  return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">Alerts & Risk Management</h1>
-        <p className="text-gray-600">Real-time alerts and risk assessment</p>
-      </div>
-      <div className="kulfi-card p-8 text-center">
-        <p className="text-gray-500">Comprehensive alerts and risk panel coming soon...</p>
-      </div>
-    </div>
-  );
-}
-
 function InsightsPanel() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">AI Insights & Recommendations</h1>
-        <p className="text-gray-600">Data-driven insights and actionable recommendations</p>
+        <h1 className="text-2xl font-bold text-slate-900">AI Insights & Recommendations</h1>
+        <p className="text-slate-600">Data-driven insights and actionable recommendations</p>
       </div>
       <div className="kulfi-card p-8 text-center">
-        <p className="text-gray-500">AI-powered insights and recommendations coming soon...</p>
+        <p className="text-slate-500">AI-powered insights and recommendations coming soon...</p>
+      </div>
+    </div>
+  );
+}
+
+function ImportView() {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-bold text-slate-900">Import Data</h1>
+        <p className="text-slate-600">Upload spreadsheets and sync with external sources</p>
+      </div>
+      <div className="kulfi-card p-8 text-center">
+        <p className="text-slate-500">Data import interface coming soon...</p>
       </div>
     </div>
   );
@@ -68,7 +43,7 @@ function InsightsPanel() {
 export function Dashboard() {
   const [activeView, setActiveView] = useState('overview');
 
-  const renderContent = () => {
+  const renderView = () => {
     switch (activeView) {
       case 'overview':
         return <DashboardOverview />;
@@ -84,19 +59,19 @@ export function Dashboard() {
         return <InsightsPanel />;
       case 'chat':
         return <AIChat />;
+      case 'import':
+        return <ImportView />;
       default:
         return <DashboardOverview />;
     }
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen overflow-hidden bg-slate-50">
       <Sidebar activeView={activeView} onViewChange={setActiveView} />
-      <div className="flex-1 flex flex-col overflow-hidden lg:ml-0">
+      <div className="flex-1 flex flex-col overflow-hidden lg:ml-20">
         <TopBar />
-        <MainContent>
-          {renderContent()}
-        </MainContent>
+        <MainContent>{renderView()}</MainContent>
       </div>
     </div>
   );

@@ -52,153 +52,243 @@ export const mockSuppliers: Supplier[] = [
   }
 ];
 
-// Mock Products Data
+// Mock Products Data - Artist Merchandise
 export const mockProducts: Product[] = [
   {
     id: 'prod-001',
-    name: 'Premium Cotton T-Shirt',
+    name: 'Tour T-Shirt - Premium Cotton',
     category: 'Apparel',
     supplierId: 'sup-001',
     status: 'in_production',
-    quantity: 5000,
-    targetDate: '2024-12-25',
+    quantity: 5700,
+    targetDate: '2025-11-22',
     currentStage: 'Cutting & Sewing',
     qualityChecks: 3,
-    riskFactors: []
+    riskFactors: ['approval_pending']
   },
   {
     id: 'prod-002',
-    name: 'Sustainable Hoodie',
+    name: 'Artist Hoodie - Premium Blend',
     category: 'Apparel',
     supplierId: 'sup-003',
     status: 'testing',
-    quantity: 2500,
-    targetDate: '2024-12-30',
-    currentStage: 'Quality Testing',
+    quantity: 3000,
+    targetDate: '2025-11-18',
+    currentStage: 'Quality Control',
     qualityChecks: 5,
-    riskFactors: ['material_shortage']
+    riskFactors: ['low_inventory', 'qc_delays']
   },
   {
     id: 'prod-003',
-    name: 'Wireless Earbuds',
-    category: 'Electronics',
+    name: 'Limited Edition Vinyl + Merch Bundle',
+    category: 'Bundle',
     supplierId: 'sup-002',
     status: 'delayed',
-    quantity: 10000,
-    targetDate: '2024-12-20',
+    quantity: 6300,
+    targetDate: '2025-11-10',
     currentStage: 'Component Assembly',
     qualityChecks: 2,
-    riskFactors: ['component_delay', 'quality_concerns']
+    riskFactors: ['supplier_delay', 'approval_pending', 'customs_clearance']
   },
   {
     id: 'prod-004',
-    name: 'Eco-Friendly Tote Bag',
+    name: 'Tour Poster + Tote Bag Set',
     category: 'Accessories',
     supplierId: 'sup-001',
     status: 'shipped',
-    quantity: 8000,
-    targetDate: '2024-12-15',
-    currentStage: 'Shipped',
+    quantity: 4000,
+    targetDate: '2025-10-28',
+    currentStage: 'In Transit',
     qualityChecks: 4,
     riskFactors: []
+  },
+  {
+    id: 'prod-005',
+    name: 'Exclusive Stadium Jacket',
+    category: 'Apparel',
+    supplierId: 'sup-003',
+    status: 'in_production',
+    quantity: 1200,
+    targetDate: '2025-12-05',
+    currentStage: 'Material Sourcing',
+    qualityChecks: 1,
+    riskFactors: ['material_lead_time']
   }
 ];
 
-// Mock Orders Data
+// Mock Orders Data - Real-world artist merchandise scenarios
 export const mockOrders: Order[] = [
   {
     id: 'ord-001',
     productId: 'prod-001',
     quantity: 2500,
-    orderDate: '2024-11-15',
-    expectedDelivery: '2024-12-25',
+    orderDate: '2025-10-15',
+    expectedDelivery: '2025-11-25',
     status: 'in_progress',
     priority: 'high',
-    customer: 'Fashion Forward Inc.',
-    value: 125000
+    customer: 'Drake World Tour - EU Leg',
+    value: 87000
   },
   {
     id: 'ord-002',
     productId: 'prod-002',
-    quantity: 1500,
-    orderDate: '2024-11-20',
-    expectedDelivery: '2024-12-30',
+    quantity: 1800,
+    orderDate: '2025-10-20',
+    expectedDelivery: '2025-11-18',
     status: 'pending',
-    priority: 'medium',
-    customer: 'Urban Style Co.',
-    value: 90000
+    priority: 'critical',
+    customer: 'Taylor Swift Eras Tour Merch',
+    value: 142000
   },
   {
     id: 'ord-003',
     productId: 'prod-003',
-    quantity: 5000,
-    orderDate: '2024-11-10',
-    expectedDelivery: '2024-12-20',
+    quantity: 3500,
+    orderDate: '2025-10-08',
+    expectedDelivery: '2025-11-10',
     status: 'delayed',
     priority: 'critical',
-    customer: 'Tech Retail Network',
-    value: 250000
+    customer: 'Bad Bunny - Stadium Series',
+    value: 98000
   },
   {
     id: 'ord-004',
     productId: 'prod-004',
     quantity: 4000,
-    orderDate: '2024-11-05',
-    expectedDelivery: '2024-12-15',
-    actualDelivery: '2024-12-12',
+    orderDate: '2025-10-01',
+    expectedDelivery: '2025-10-28',
+    actualDelivery: '2025-10-26',
     status: 'delivered',
-    priority: 'low',
-    customer: 'Green Living Stores',
-    value: 60000
+    priority: 'medium',
+    customer: 'Billie Eilish Pop-Up Store',
+    value: 52000
+  },
+  {
+    id: 'ord-005',
+    productId: 'prod-001',
+    quantity: 3200,
+    orderDate: '2025-10-12',
+    expectedDelivery: '2025-11-22',
+    status: 'pending',
+    priority: 'high',
+    customer: 'The Weeknd Arena Tour',
+    value: 76000
+  },
+  {
+    id: 'ord-006',
+    productId: 'prod-002',
+    quantity: 1200,
+    orderDate: '2025-10-25',
+    expectedDelivery: '2025-12-05',
+    status: 'in_progress',
+    priority: 'medium',
+    customer: 'Dua Lipa UK Venues',
+    value: 48000
+  },
+  {
+    id: 'ord-007',
+    productId: 'prod-003',
+    quantity: 2800,
+    orderDate: '2025-10-05',
+    expectedDelivery: '2025-11-15',
+    status: 'delayed',
+    priority: 'high',
+    customer: 'Ed Sheeran Festival Circuit',
+    value: 67000
   }
 ];
 
-// Mock Alerts Data
+// Mock Alerts Data - Risk-First Approach
 export const mockAlerts: Alert[] = [
   {
     id: 'alert-001',
     type: 'delay',
-    severity: 'high',
-    title: 'Production Delay - Wireless Earbuds',
-    description: 'Component shortage causing 5-day delay in assembly line',
-    timestamp: '2024-12-14T09:30:00Z',
-    affectedItems: ['prod-003', 'ord-003'],
+    severity: 'critical',
+    title: 'Order #1247 Missing Delivery Window',
+    description: 'Artist merchandise for Drake tour - expected delivery in 6 days but approval still pending (stuck 14 days)',
+    timestamp: '2025-11-04T08:15:00Z',
+    affectedItems: ['ord-003', 'sup-002'],
     recommendedActions: [
-      'Contact backup component supplier',
-      'Negotiate expedited shipping',
-      'Notify customer of revised timeline'
+      'Escalate to supplier lead immediately',
+      'Call Pacific Manufacturing procurement',
+      'Notify customer of potential 8-day delay'
     ],
     status: 'active'
   },
   {
     id: 'alert-002',
-    type: 'quality',
-    severity: 'medium',
-    title: 'Quality Check Failed - Sustainable Hoodie',
-    description: 'Color inconsistency detected in batch testing',
-    timestamp: '2024-12-14T14:15:00Z',
+    type: 'supplier',
+    severity: 'critical',
+    title: 'Approval Block - Alpine Textiles',
+    description: '3 orders worth €87k stuck in approval for 11+ days. Production cannot start.',
+    timestamp: '2025-11-03T16:30:00Z',
+    affectedItems: ['sup-001', 'ord-001', 'ord-005'],
+    recommendedActions: [
+      'Chase approval from procurement team',
+      'Show impact dashboard to leadership',
+      'Request emergency sign-off'
+    ],
+    status: 'active'
+  },
+  {
+    id: 'alert-003',
+    type: 'inventory',
+    severity: 'high',
+    title: 'Critical SKU Below Minimum Stock',
+    description: 'Premium hoodies (SKU-2847) at 240 units - below 500 minimum. Next order 18 days away.',
+    timestamp: '2025-11-04T07:00:00Z',
     affectedItems: ['prod-002'],
     recommendedActions: [
-      'Implement additional color matching process',
-      'Review dye supplier quality standards',
-      'Schedule re-testing for affected batch'
+      'Request expedited production from Milano Fashion',
+      'Check if alternative suppliers can fulfill',
+      'Review upcoming order commitments'
+    ],
+    status: 'active'
+  },
+  {
+    id: 'alert-004',
+    type: 'delay',
+    severity: 'high',
+    title: '⚠️ Supplier Lead Time Variance +35%',
+    description: 'Bengal Crafts average lead time increased from 28 to 38 days. 4 active orders affected.',
+    timestamp: '2025-11-02T14:20:00Z',
+    affectedItems: ['sup-004'],
+    recommendedActions: [
+      '📞 Schedule supplier performance review',
+      '🔍 Investigate root cause of delays',
+      '📊 Notify affected customers proactively'
     ],
     status: 'investigating'
   },
   {
-    id: 'alert-003',
-    type: 'supplier',
+    id: 'alert-005',
+    type: 'compliance',
     severity: 'medium',
-    title: 'Supplier Performance Warning',
-    description: 'Pacific Manufacturing reliability dropped below threshold',
-    timestamp: '2024-12-14T11:00:00Z',
-    affectedItems: ['sup-002'],
+    title: '🕒 Production Not Started - 12 Days Overdue',
+    description: 'PO #8921 placed 22 days ago, production status still "Pending". Customer expecting delivery in 18 days.',
+    timestamp: '2025-11-01T11:45:00Z',
+    affectedItems: ['ord-007', 'sup-003'],
     recommendedActions: [
-      'Schedule supplier performance review',
-      'Identify backup suppliers for critical orders',
-      'Implement enhanced monitoring'
+      '📧 Request immediate status update',
+      '⏰ Set 48-hour follow-up reminder',
+      '🔄 Identify backup production options'
     ],
     status: 'active'
+  },
+  {
+    id: 'alert-006',
+    type: 'quality',
+    severity: 'medium',
+    title: '🕒 Quality Control Taking 2x Expected Time',
+    description: 'Pacific Manufacturing QC process averaging 8 days vs. expected 4 days. Impacting 5 shipments.',
+    timestamp: '2025-10-31T09:15:00Z',
+    affectedItems: ['sup-002'],
+    recommendedActions: [
+      '📋 Review QC process with supplier',
+      '🔍 Identify bottlenecks in inspection',
+      '⚡ Request priority handling for critical orders'
+    ],
+    status: 'investigating'
   }
 ];
 
@@ -206,43 +296,53 @@ export const mockAlerts: Alert[] = [
 export const mockMetrics: Metric[] = [
   {
     id: 'metric-001',
-    name: 'On-Time Delivery Rate',
-    value: 87.5,
+    name: 'OTIF % (On-Time In-Full)',
+    value: 72,
     unit: '%',
     trend: 'down',
-    change: -2.3,
+    change: -11,
     target: 95,
     category: 'delivery'
   },
   {
     id: 'metric-002',
-    name: 'Quality Score',
-    value: 92.1,
-    unit: '%',
+    name: 'Value at Risk',
+    value: 412000,
+    unit: '€',
     trend: 'up',
-    change: 1.8,
-    target: 95,
-    category: 'quality'
+    change: 29,
+    target: 100000,
+    category: 'financial'
   },
   {
     id: 'metric-003',
-    name: 'Production Efficiency',
-    value: 89.3,
-    unit: '%',
-    trend: 'stable',
-    change: 0.2,
-    target: 90,
-    category: 'production'
+    name: 'Orders at Risk',
+    value: 6,
+    unit: 'orders',
+    trend: 'up',
+    change: 50,
+    target: 2,
+    category: 'delivery'
   },
   {
     id: 'metric-004',
-    name: 'Cost Variance',
-    value: 3.7,
-    unit: '%',
-    trend: 'up',
-    change: 0.8,
-    target: 5,
-    category: 'financial'
+    name: 'Approval Blocks',
+    value: 3,
+    unit: 'suppliers',
+    trend: 'stable',
+    change: 0,
+    target: 0,
+    category: 'production'
+  },
+  {
+    id: 'metric-005',
+    name: 'Below Min Inventory',
+    value: 2,
+    unit: 'SKUs',
+    trend: 'down',
+    change: -33,
+    target: 0,
+    category: 'production'
   }
 ];
 
